@@ -1,0 +1,15 @@
+[Unit]
+Description=Claude Discord Bridge
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=__REPO_DIR__
+ExecStart=__REPO_DIR__/.venv/bin/python -m bridge
+Restart=on-failure
+RestartSec=10
+Environment=HOME=__HOME_DIR__
+Environment=PATH=__HOME_DIR__/.local/bin:/usr/local/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=default.target
